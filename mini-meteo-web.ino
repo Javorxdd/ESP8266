@@ -71,13 +71,20 @@ void loop() {
 }
 
 void handleRoot() {
+  /*String html = "<html><body>";
+  html += "<h1>Aktuální hodnoty:</h1>";  // HTML stránka na lokálu
+  html += "<p>Teplota: " + String(temperature) + " °C</p>";
+  html += "<p>Vlhkost: " + String(humidity) + " %</p>";
+  html += "</body></html>";
+
+  server.send(200, "text/html", html);*/
   String jsonString = generateJsonString();
   
   // Send JSON response
   server.send(200, "application/json", jsonString);
 }
 
-
+// V případě nepoužití vymazat/ zakomentovat
 String generateJsonString() {
   // Vytvoření JSON objektu
   StaticJsonDocument<200> jsonDoc;
